@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 1475752813}
   - component: {fileID: 1475752812}
   m_Layer: 0
-  m_Name: low_poly_simple_mountain_landscape-wallpaper-3840x1200
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
