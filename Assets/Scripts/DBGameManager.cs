@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class DBGameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private UIManager uiManager;
     private void Start()
     {
         savedGamesButtons = new List<GameObject>();
@@ -167,11 +168,15 @@ public class DBGameManager : MonoBehaviour
     /// <summary>
     /// UI SETTINGS
     /// </summary>
-    public void Update_DataPreferences()
+    public void UPDATE_Preferences()
     {
-
+        IENUM_UpdatePreference();
     }
-    private IEnumerator UpdatePreference()
+    public void GET_Preferences()
+    {
+        IENUM_GetPreference();
+    }
+    private IEnumerator IENUM_UpdatePreference()
     {
         WWWForm form = new WWWForm();
         form.AddField("username", DBManager.username);
@@ -182,7 +187,7 @@ public class DBGameManager : MonoBehaviour
         WWW www = new WWW("http://localhost/sqlconnect/SaveConfiguration.php", form);
         yield return www;
     }
-    private IEnumerator GetPreference()
+    private IEnumerator IENUM_GetPreference()
     {
         WWWForm form = new WWWForm();
         form.AddField("username", DBManager.username);
@@ -201,4 +206,18 @@ public class DBGameManager : MonoBehaviour
         DBManager.musicVol = float.Parse(data[2]);
         DBManager.sfxVol = float.Parse(data[2]);
     }
+    private void UI_UpdateGameSettings()
+    {
+        if (DBManager.fullscreen == 1)
+        {
+            uiManager.SetFullscreen(true);
+        }
+        else
+        {
+            uiManager.SetFullscreen(false);
+        }
+        
+
+    }
+
 }

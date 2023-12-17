@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -912,7 +912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1046,21 +1046,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211f6a920ebe0480a869b50e724a2d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadCustomPosition: 0
-  customPosition: 7k/R7/p7/6p1/5p1p/5P1K/r6P/8 w - - 0 1
-  currentPosition: 
-  whitePlayerType: 0
-  blackPlayerType: 1
-  aiSettings: {fileID: 11400000, guid: d2b05b1ed402249ebb9c51f0c34168d7, type: 2}
+  loadFEN: 0
+  customFEN: 1rbq1r1k/2pp2pp/p1n3p1/2b1p3/R3P3/1BP2N2/1P3PPP/1NBQ1RK1 w - - 0 1
+  currentFEN: 
+  whiteTeam: 0
+  blackTeam: 0
   colors:
   - {r: 0.9245283, g: 0.40557134, b: 0.40557134, a: 1}
   - {r: 0.9056604, g: 0.7143753, b: 0.35457456, a: 1}
   - {r: 0.82327586, g: 0.5653702, b: 0.990566, a: 1}
   - {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
-  useClocks: 1
   whiteClock: {fileID: 1001183583446672483}
   blackClock: {fileID: 1001183584011258447}
-  forceExit: 0
   pause: 0
   usernameText: {fileID: 1725907209}
   currentELOText: {fileID: 730916461}
@@ -1072,6 +1069,8 @@ MonoBehaviour:
   prevELOText: {fileID: 1897062940}
   endGroupUI: {fileID: 264236957}
   goBackButton: {fileID: 1772193717}
+  clockGO: {fileID: 0}
+  noClockGO: {fileID: 0}
 --- !u!4 &439694611
 Transform:
   m_ObjectHideFlags: 0
@@ -1272,7 +1271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2489,7 +2488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4011,6 +4010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c9cd6a59517414e8ef2c0364f99385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  squareShader: {fileID: 0}
   whitePieceSprites:
   - {fileID: 1403798878, guid: ea88f704834761c459605e779eb1c72b, type: 3}
   - {fileID: 264324158, guid: ea88f704834761c459605e779eb1c72b, type: 3}
@@ -4028,6 +4028,8 @@ MonoBehaviour:
   boardTheme: {fileID: 11400000, guid: d05b5e416e13e474f9aa9ffde0ea0715, type: 2}
   showLegalMoves: 1
   whiteIsBottom: 1
+  whiteClockTransform: {fileID: 0}
+  blackClockTransform: {fileID: 0}
 --- !u!4 &1667051519
 Transform:
   m_ObjectHideFlags: 0
@@ -4344,7 +4346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
