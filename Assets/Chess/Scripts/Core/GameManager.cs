@@ -365,6 +365,9 @@ public class GameManager : MonoBehaviour {
         form.AddField("scoregained", scoreGained);
         form.AddField("fen", FenUtility.CurrentFen(board));
         form.AddField("_newcurrentscore", DBManager.score);
+        form.AddField("win", DBManager.gamesWon);
+        form.AddField("lose", DBManager.gamesLost);
+        form.AddField("draw", DBManager.gamesDraw);
 
         // Jika bermain lawan AI, maka set AI difficulty > 0
         // Jika bermain local / sesama player, set difficulty -1

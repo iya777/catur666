@@ -18,12 +18,12 @@ MonoBehaviour:
   useTranspositionTable: 1
   useThreading: 1
   useFixedDepthSearch: 1
-  searchTimeMillis: 2500
+  searchTimeMillis: 2000
   endlessSearchMode: 0
   clearTTEachMove: 1
   useBook: 1
   book: {fileID: 4900000, guid: 7473c7aa9594747efb1706cc9c268ef3, type: 3}
   maxBookPly: 10
-  bookMoveDelayMs: 5000
+  bookMoveDelayMs: 2000
   bookMoveDelayRandomExtraMs: 1000
   promotionsToSearch: 2
