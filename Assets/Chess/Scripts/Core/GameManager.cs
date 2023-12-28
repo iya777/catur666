@@ -7,18 +7,26 @@ using UnityEngine.SceneManagement;
 using UtilityLib;
 public class GameManager : MonoBehaviour {
 
-	private enum Result { Playing, WhiteIsMated, BlackIsMated, Stalemate, Repetition, FiftyMoveRule, InsufficientMaterial, Paused, BlackTimeOut, WhiteTimeOut } //halted untuk force quit
+    // Game State.
+	private enum Result { Playing, WhiteIsMated, BlackIsMated,
+                          Stalemate, Repetition, FiftyMoveRule,
+                          InsufficientMaterial, Paused, BlackTimeOut, WhiteTimeOut }
+    // Tipe Player.
 	private enum PlayerType { Human, AI }
 
-	public bool loadFEN;
+    // FEN adalah kode string yang digunakan untuk
+    // menyimpan setiap posisi dari catur.
+    // More info: https://www.chess.com/terms/fen-chess
+    public bool loadFEN;
 	public string customFEN = "1rbq1r1k/2pp2pp/p1n3p1/2b1p3/R3P3/1BP2N2/1P3PPP/1NBQ1RK1 w - - 0 1";
     public string currentFEN = "";
 
+    // Dalam permainan catur sudah dipastikan
+    // hanya ada dua pemain yaitu tim putih & hitam.
 	[SerializeField] private PlayerType whiteTeam;
     [SerializeField] private PlayerType blackTeam;
-    [SerializeField] private Color[] colors;
-    //public AISettings aiSettings;
 
+    [SerializeField] private Color[] colors;
     [SerializeField] private Clock whiteClock;
     [SerializeField] private Clock blackClock;
 
@@ -78,7 +86,7 @@ public class GameManager : MonoBehaviour {
     /// Update() -> dipanggil terus-menerus hingga aplikasi berhenti
     /// </summary>
 	private void Start() {
-        if (loadedGameFEN != "")
+        if (loadedGameFEN != "" && loadedGameFEN != null)
         {
             customFEN = loadedGameFEN;
             loadFEN = true;
