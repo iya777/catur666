@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour {
     public static bool versusAI;
     public static string loadedGameFEN;
     public static int loadedGameID;
+    public static int white_time;
+    public static int black_time;
 
     // State atau Kondisi dari permainan yang sedang berlangsung
     private Result gameResult;
@@ -105,20 +107,28 @@ public class GameManager : MonoBehaviour {
             blackClock.enabled = true;
             clockGO.SetActive(true);
             noClockGO.SetActive(false);
-            if (gameMode == "BULLET")
+            if (loadFEN)
             {
-                whiteClock.startSeconds = 60;
-                blackClock.startSeconds = 60;
+                whiteClock.startSeconds = white_time;
+                blackClock.startSeconds = black_time;
             }
-            else if (gameMode == "BLITZ")
+            else
             {
-                whiteClock.startSeconds = 300;
-                blackClock.startSeconds = 300;
-            }
-            else if (gameMode == "RAPID")
-            {
-                whiteClock.startSeconds = 600;
-                blackClock.startSeconds = 600;
+                if (gameMode == "BULLET")
+                {
+                    whiteClock.startSeconds = 60;
+                    blackClock.startSeconds = 60;
+                }
+                else if (gameMode == "BLITZ")
+                {
+                    whiteClock.startSeconds = 300;
+                    blackClock.startSeconds = 300;
+                }
+                else if (gameMode == "RAPID")
+                {
+                    whiteClock.startSeconds = 600;
+                    blackClock.startSeconds = 600;
+                }
             }
         }
         if (versusAI)
@@ -376,7 +386,7 @@ public class GameManager : MonoBehaviour {
         form.AddField("win", DBManager.gamesWon);
         form.AddField("lose", DBManager.gamesLost);
         form.AddField("draw", DBManager.gamesDraw);
-
+           
         // Jika bermain lawan AI, maka set AI difficulty > 0
         // Jika bermain local / sesama player, set difficulty -1
         if (GetVSAI() > 0)
@@ -440,6 +450,16 @@ public class GameManager : MonoBehaviour {
         form.AddField("username", DBManager.username);
         form.AddField("gamemode", gameMode);
         form.AddField("vsai", GetVSAI());
+        if (gameMode == "NO_TIME_LIMIT")
+        {
+            form.AddField("white_time", -1);
+            form.AddField("black_time", -1);
+        }
+        else
+        {
+            form.AddField("white_time", (int)whiteClock.secondsRemaining);
+            form.AddField("black_time", (int)blackClock.secondsRemaining);
+        }
         if (GetVSAI() > 0)
         {
             form.AddField("difficultyai", (int)aiSettings.difficulty);

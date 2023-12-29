@@ -10,6 +10,8 @@ public class SavedGamesButtonVariables : MonoBehaviour
     public string FEN;
     public bool isWhite;
     public int savedGameID;
+    public int white_time;
+    public int black_time;
     public void CallBehaviour()
     {
         GameManager.gameMode = gamemode.text;
@@ -41,6 +43,8 @@ public class SavedGamesButtonVariables : MonoBehaviour
         }
         GameManager.loadedGameFEN = FEN;
         GameManager.loadedGameID = savedGameID;
+        GameManager.white_time = white_time;
+        GameManager.black_time = black_time;
         SceneManager.LoadScene(4);
     }
 }

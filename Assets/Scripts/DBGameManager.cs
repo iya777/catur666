@@ -151,6 +151,8 @@ public class DBGameManager : MonoBehaviour
                 buttonVars.isWhite = false;
             }
             buttonVars.savedGameID = int.Parse(content[1]);
+            buttonVars.white_time = int.Parse(content[8]);
+            buttonVars.black_time = int.Parse(content[9]);
             savedGamesButtons.Add(savedGameButton);
         }
     }
