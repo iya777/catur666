@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class DBGameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private UIManager uiManager;
+    //[SerializeField] private UIManager uiManager;
     private void Start()
     {
         savedGamesButtons = new List<GameObject>();
@@ -206,18 +206,18 @@ public class DBGameManager : MonoBehaviour
         DBManager.musicVol = float.Parse(data[2]);
         DBManager.sfxVol = float.Parse(data[2]);
     }
-    private void UI_UpdateGameSettings()
-    {
-        if (DBManager.fullscreen == 1)
-        {
-            uiManager.SetFullscreen(true);
-        }
-        else
-        {
-            uiManager.SetFullscreen(false);
-        }
+    //private void UI_UpdateGameSettings()
+    //{
+    //    if (DBManager.fullscreen == 1)
+    //    {
+    //        uiManager.SetFullscreen(true);
+    //    }
+    //    else
+    //    {
+    //        uiManager.SetFullscreen(false);
+    //    }
         
 
-    }
+    //}
 
 }

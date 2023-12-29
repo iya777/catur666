@@ -9,6 +9,7 @@ public class Login : MonoBehaviour
 {
     [SerializeField] private TMP_InputField nameField;
     [SerializeField] private TMP_InputField passwordField;
+    [SerializeField] private TextMeshProUGUI errorMessage;
     public Button submitButton;
 
     public void CallLogin()
@@ -30,7 +31,7 @@ public class Login : MonoBehaviour
         }
         else
         {
-            Debug.LogError("User login failed. Error #" + www.text);
+            errorMessage.gameObject.SetActive(true);
         }
     }
     public void VerifyInputs()

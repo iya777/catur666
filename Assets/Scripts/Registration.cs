@@ -10,6 +10,7 @@ public class Registration : MonoBehaviour
     [SerializeField] private TMP_InputField nameField;
     [SerializeField] private TMP_InputField passwordField;
     [SerializeField] private TMP_InputField passwordConfirmField;
+    [SerializeField] private TextMeshProUGUI errorMessage;
     [SerializeField] private Button submitButton;
     public void CallRegister()
     {
@@ -29,7 +30,7 @@ public class Registration : MonoBehaviour
         }
         else
         {
-            Debug.LogError("User creation failed.");
+            errorMessage.gameObject.SetActive(true);
         }
     }
     public void VerifyInputs()
