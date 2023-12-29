@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     // Game State.
 	private enum Result { Playing, WhiteIsMated, BlackIsMated,
                           Stalemate, Repetition, FiftyMoveRule,
-                          InsufficientMaterial, Paused, BlackTimeOut, WhiteTimeOut }
+                          InsufficientMaterial, Paused, BlackTimeOut, WhiteTimeOut}
     // Tipe Player.
 	private enum PlayerType { Human, AI }
 
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour {
 	}
     private void Update () {
         playerToMove.Update();
-        if (gameMode != "NO_TIME_LIMIT")
+        if (gameMode != "NO_TIME_LIMIT" && gameResult != Result.Paused)
         {
             if (whiteClock.isTurnToMove && whiteClock.secondsRemaining <= 0)
             {
@@ -172,6 +172,7 @@ public class GameManager : MonoBehaviour {
             whiteClock.isTurnToMove = board.WhiteToMove;
             blackClock.isTurnToMove = !board.WhiteToMove;
         }
+        GameResultState(gameResult);
     }
 
     /// <summary>
@@ -188,8 +189,8 @@ public class GameManager : MonoBehaviour {
         {
             gameResult = prevGameResult;
         }
-        whiteClock.isPaused = value;
-        blackClock.isPaused = value;
+        //whiteClock.isPaused = value;
+        //blackClock.isPaused = value;
     }
 	void OnMoveChosen (Move move) {
 		bool animateMove = playerToMove is AIPlayer;
@@ -325,6 +326,7 @@ public class GameManager : MonoBehaviour {
         endGroupUI.SetActive(true);
         goBackButton.SetActive(false);
         StartCoroutine(InsertGameHistory());
+        PauseGame(true);
     }
     private void EvaluateScore(bool playerWins)
     {
