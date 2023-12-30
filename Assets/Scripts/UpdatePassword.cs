@@ -23,30 +23,42 @@ public class UpdatePassword : MonoBehaviour
     }
     public void ResetSubmitButtonInfoText()
     {
-        submitButtonInfoText.gameObject.SetActive(false);
-    }
-    public void UPDATE_PASSWORD()
-    {
-        if (oldPasswordField.text.Length < 4)
+        submitButton.interactable = (oldPasswordField.text.Length >= 4 && newPasswordField.text.Length >= 4 && confirmNewPasswordField.text.Length >= 4 && newPasswordField.text == confirmNewPasswordField.text);
+        if (newPasswordField.text != "" && confirmNewPasswordField.text != "")
         {
-            submitButtonInfoText.gameObject.SetActive(true);
-            submitButtonInfoText.text = "Old password must be greater than 4 characters";
-        }
-        else if (newPasswordField.text.Length < 4)
-        {
-            submitButtonInfoText.gameObject.SetActive(true);
-            submitButtonInfoText.text = "New password must be greater than 4 characters";
-        }
-        else if (confirmNewPasswordField.text != newPasswordField.text)
-        {
-            submitButtonInfoText.gameObject.SetActive(true);
-            submitButtonInfoText.text = "New password does not match";
+            if (newPasswordField.text.Length < 4 || confirmNewPasswordField.text.Length < 4)
+            {
+                if (newPasswordField.text != confirmNewPasswordField.text)
+                {
+                    submitButtonInfoText.SetText("Nilai dari confirm password harus sama dengan nilai pada new password.");
+                }
+                else
+                {
+                    submitButtonInfoText.SetText("Password harus lebih dari 4 karakter!");
+                }
+                submitButtonInfoText.gameObject.SetActive(true);
+            }
+            else
+            {
+                if (newPasswordField.text != confirmNewPasswordField.text)
+                {
+                    submitButtonInfoText.SetText("Nilai dari confirm password harus sama dengan nilai pada new password.");
+                    submitButtonInfoText.gameObject.SetActive(true);
+                }
+                else
+                {
+                    submitButtonInfoText.gameObject.SetActive(false);
+                }
+            }
         }
         else
         {
             submitButtonInfoText.gameObject.SetActive(false);
-            StartCoroutine(IENUM_UpdatePassword());
         }
+    }
+    public void UPDATE_PASSWORD()
+    {
+        StartCoroutine(IENUM_UpdatePassword());
     }
     private IEnumerator IENUM_UpdatePassword()
     {
@@ -65,7 +77,6 @@ public class UpdatePassword : MonoBehaviour
             newPasswordField.text = "";
             confirmNewPasswordField.text = "";
             submitButton.interactable = false;
-            gameObject.SetActive(false);
         }
         else if (www.text == "1")
         {
