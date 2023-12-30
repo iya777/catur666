@@ -36,5 +36,36 @@ public class Registration : MonoBehaviour
     public void VerifyInputs()
     {
         submitButton.interactable = (nameField.text.Length >= 4 && passwordField.text.Length >= 4 && passwordField.text == passwordConfirmField.text);
+        if (passwordField.text != "" && passwordConfirmField.text != "")
+        {
+            if (passwordField.text.Length < 4 || passwordConfirmField.text.Length < 4)
+            {
+                if (passwordField.text != passwordConfirmField.text)
+                {
+                    errorMessage.SetText("Nilai dari confirm password harus sama dengan nilai pada password.");
+                }
+                else
+                {
+                    errorMessage.SetText("Password harus lebih dari 4 karakter!");
+                }
+                errorMessage.gameObject.SetActive(true);
+            }
+            else
+            {       
+                if (passwordField.text != passwordConfirmField.text)
+                {
+                    errorMessage.SetText("Nilai dari confirm password harus sama dengan nilai pada password.");
+                    errorMessage.gameObject.SetActive(true);
+                }
+                else
+                {
+                    errorMessage.gameObject.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            errorMessage.gameObject.SetActive(false);
+        }
     }
 }
