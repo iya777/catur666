@@ -5,6 +5,7 @@ Features:
 - Bullet, Blitz, Rapid, No Time Limit
 - CRUD Database (Login, register, leaderboard, etc)
 - Save/Load Unfinished Game
+![Screenshot](github-cover.jpg)
 
 # INFORMASI PENTING
 Untuk menjalankan aplikasi, harus download file database pada link github berikut:\
