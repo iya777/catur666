@@ -19,7 +19,7 @@ Untuk menjalankan aplikasi, harus download file database pada link github beriku
 
 # INSTALLATION
 1. Download project Catur 66 dari repository github ini (Bisa juga melalui clone repository menggunakan aplikasi Github Desktop).
-2. Download database Catur 66 pada link berikut: [https://github.com/iya777/catur666-database](https://github.com/iya777/catur666-database) (Bisa juga melalui clone repository menggunakan aplikasi Github Desktop).
+2. Download database Catur 66 pada link berikut: [https://github.com/iya777/catur666-database](https://github.com/iya777/catur666-database).
 3. Extract project Catur 66 ke suatu lokasi.
 4. Extract database Catur 66 ke suatu lokasi yang berbeda dari project Catur 66.
 5. Buka folder "Database (Newest Version)" lalu copy folder "sqlconnect".
