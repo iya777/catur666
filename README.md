@@ -5,6 +5,7 @@ Features:
 - Bullet, Blitz, Rapid, No Time Limit
 - CRUD Database (Login, register, leaderboard, etc)
 - Save/Load Unfinished Game
+
 ![Screenshot](catur66-github-cover.jpg)
 
 # INFORMASI PENTING
