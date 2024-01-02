@@ -10,7 +10,7 @@ Features:
 
 # INFORMASI PENTING
 Untuk menjalankan aplikasi, harus download file database pada link github berikut:\
-[Catur 66 Database Github Repository](https://github.com/iya777/catur666-database)
+[https://github.com/iya777/catur666-database](https://github.com/iya777/catur666-database)
 
 # REQUIREMENTS
 - Unity Engine 2022.3 LTS (minimum)
